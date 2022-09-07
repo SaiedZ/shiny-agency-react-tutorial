@@ -10,11 +10,20 @@ import Freelances from './pages/Freelances'
 import Header from './components/Header'
 import Error from './components/Error'
 
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+    * {
+      font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`
+
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
     <React.StrictMode>
         <BrowserRouter>
+            <GlobalStyle />
             <Header />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
