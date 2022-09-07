@@ -7,7 +7,7 @@ import colors from '../../utils/style/colors'
 
 const StyledLink = styled(Link)`
     padding: 15px;
-    color: #8186a0;
+    color: ${colors.secondary};
     text-decoration: none;
     font-size: 18px;
     ${(props) =>
