@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import DefaultPicture from '../../assets/profile.png'
+import colors from '../../utils/style/colors'
 
 const CardLabel = styled.span`
-    color: #5843e4;
+    color: ${colors.primary};
     font-size: 22px;
     font-weight: bold;
 `
