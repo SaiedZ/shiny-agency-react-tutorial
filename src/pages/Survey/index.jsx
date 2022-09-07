@@ -32,42 +32,48 @@ const LinkWrapper = styled.div`
     }
 `
 
+// useEffect(() => {
+//     // fetchData()
+//     setDataLoading(true)
+//     fetch(`http://localhost:8000/survey`).then((response) =>
+//         response.json().then(({ surveyData }) => {
+//             setSurveyData(surveyData)
+//             setDataLoading(false)
+//         })
+//     )
+// }, [])
+
 function Survey() {
     const { questionNumber } = useParams()
     const questionNumberInt = parseInt(questionNumber)
     const prevQuestionNumber =
         questionNumberInt === 1 ? 1 : questionNumberInt - 1
     const nextQuestionNumber = questionNumberInt + 1
+
     const [surveyData, setSurveyData] = useState({})
     const [isDataLoading, setDataLoading] = useState(false)
-
-    // Cette syntaxe permet aussi bien de faire des calls API.
-    // Mais pour utiliser await dans une fonction, il faut que celle-ci soit async (pour asynchrone).
-    // Comme la fonction passée à useEffect ne peut pas être asynchrone,
-    // il faut utiliser une fonction qui est appelée dans useEffect et déclarée en dehors, comme ici 👇.
-    // Essayez de commenter le code créé dans le chapitre et de décommenter fetchData pour voir.
-
-    // async function fetchData() {
-    //   try {
-    //     const response = await fetch(`http://localhost:8000/survey`)
-    //     const { surveyData } = await response.json()
-    //     setSurveyData(surveyData)
-    //   } catch (error) {
-    // console.log('===== error =====', error)
-    // setError(true)
-    //   }
-    // }
+    const [error, setError] = useState(false)
 
     useEffect(() => {
-        // fetchData()
-        setDataLoading(true)
-        fetch(`http://localhost:8000/survey`).then((response) =>
-            response.json().then(({ surveyData }) => {
+        async function fetchSurvey() {
+            setDataLoading(true)
+            try {
+                const response = await fetch(`http://localhost:8000/survey`)
+                const { surveyData } = await response.json()
                 setSurveyData(surveyData)
+            } catch (err) {
+                console.log('===== error =====', err)
+                setError(true)
+            } finally {
                 setDataLoading(false)
-            })
-        )
+            }
+        }
+        fetchSurvey()
     }, [])
+
+    if (error) {
+        return <span>Oups il y a eu un problème</span>
+    }
 
     return (
         <SurveyContainer>
