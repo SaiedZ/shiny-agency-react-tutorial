@@ -25,6 +25,16 @@ const NightModeButton = styled.button`
 function Footer() {
     const { toggleTheme, theme } = useContext(ThemeContext)
     return (
+        // Using context without hooks
+        // <ThemeContext.Consumer>
+        //     {({toogleTheme, theme}) => (
+        //         <FooterContainer>
+        //         <NightModeButton onClick={() => toggleTheme()}>
+        //             Changer de mode : {theme === 'light' ? '☀️' : '🌙'}
+        //         </NightModeButton>
+        //     </FooterContainer>
+        //     )}
+        // </ThemeContext.Consumer>
         <FooterContainer>
             <NightModeButton onClick={() => toggleTheme()}>
                 Changer de mode : {theme === 'light' ? '☀️' : '🌙'}
