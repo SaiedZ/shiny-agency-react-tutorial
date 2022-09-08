@@ -17,7 +17,7 @@ const StyledGlobalStyle = createGlobalStyle`
             props.isDarkMode ? '#2F2E41' : 'white'};
         */
         background-color: ${({ isDarkMode }) =>
-            isDarkMode ? colors.backgroundDark : colors.backgroundLight};
+            isDarkMode ? '#2F2E41' : 'white'};
         margin: 0;  
     }
 `

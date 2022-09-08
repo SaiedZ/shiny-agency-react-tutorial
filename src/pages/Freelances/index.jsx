@@ -39,7 +39,7 @@ const LoaderWrapper = styled.div`
 function Freelances() {
     const { theme } = useTheme()
     const { data, isLoading, error } = useFetch(
-        `http://localhost:8000/freelances`
+        'http://localhost:8000/freelances'
     )
 
     // Ici le "?" permet de s'assurer que data existe bien.
