@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Results from './pages/Results'
 import Freelances from './pages/Freelances'
+import Profile from './pages/Profile'
 import Header from './components/Header'
 import Error from './components/Error'
 import Footer from './components/Footer'
@@ -35,6 +36,11 @@ root.render(
                             path="/freelances"
                             element={<Freelances />}
                         ></Route>
+                        <Route
+                            path="/profile/:idParam"
+                            element={<Profile />}
+                            render={(props) => <Profile {...props} />}
+                        />
                         <Route path="*" element={<Error />} />
                     </Routes>
                     <Footer />

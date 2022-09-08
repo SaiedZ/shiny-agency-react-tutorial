@@ -1,5 +1,5 @@
 module.exports = {
-    parser: 'babel-eslint',
+    parser: 'node_modules/babel-eslint',
     env: {
         browser: true,
         commonjs: true,

@@ -94,3 +94,5 @@ Il existe plusieurs utilisations de `useRef` , mais ce hook est avant tout utili
 ### useMemo et useCallback
 
 Ces deux hooks nous permettent d’éviter de refaire des calculs coûteux pour nos performances. Vous pouvez préciser des valeurs pour lesquelles il faudra refaire les calculs uniquement si l’un des paramètres change, grâce à `useMemo` et `useCallback`.
+
+npm install --save --save-exact react-scripts@5.0.1

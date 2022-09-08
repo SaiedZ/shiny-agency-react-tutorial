@@ -75,7 +75,7 @@ function Survey() {
         saveAnswers({ [questionNumber]: answer })
     }
 
-    const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
+    const { data, isLoading, error } = useFetch('http://localhost:8000/survey')
 
     // Ici le "?" permet de s'assurer que data existe bien.
     // Vous pouvez en apprendre davantage sur cette notation ici :
