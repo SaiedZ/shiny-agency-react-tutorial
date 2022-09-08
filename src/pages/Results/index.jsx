@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { useContext } from 'react'
+import EmptyList from '../../components/EmptyList'
 import { SurveyContext } from '../../utils/context'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
@@ -86,7 +87,11 @@ function Results() {
         return <span>Il y a un problème</span>
     }
 
-    const { resultsData } = data
+    const resultsData = data?.resultsData
+
+    if (resultsData?.length < 1) {
+        return <EmptyList theme={theme} />
+    }
 
     return isLoading ? (
         <LoaderWrapper>
