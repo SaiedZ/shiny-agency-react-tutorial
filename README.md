@@ -68,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Rappel
+
+## Intégrez les règles des hooks (https://fr.reactjs.org/docs/hooks-reference.html)
+
+Je le rappelle ici : les hooks ont leurs propres règles d’utilisation.
+
+-   Les hooks sont uniquement accessibles dans un composant fonction React. Donc ce n'est pas possible d’en utiliser dans un composant classe ou bien dans une simple fonction JavaScript.
+
+-   Appelez les hooks au niveau racine de vos composants.
+
+-   Attention au nommage de vos hooks personnalisés : même s’il ne s’agit pas vraiment d’une règle obligatoire, mais d’une convention, vos hooks personnalisés doivent commencer par use pour que l’on sache en un coup d’œil qu’il s’agit d’un hook.
+
+## Autres hooks
+
+### useRef
+
+Il existe plusieurs utilisations de `useRef` , mais ce hook est avant tout utilisé pour interagir avec des éléments du DOM.
+
+### useReducer
+
+`useReducer` permet de mieux gérer votre state lorsqu’il comporte de nombreuses propriétés qui doivent être modifiées régulièrement.
+
+### useMemo et useCallback
+
+Ces deux hooks nous permettent d’éviter de refaire des calculs coûteux pour nos performances. Vous pouvez préciser des valeurs pour lesquelles il faudra refaire les calculs uniquement si l’un des paramètres change, grâce à `useMemo` et `useCallback`.
