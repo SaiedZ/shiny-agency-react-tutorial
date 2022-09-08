@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { Loader } from '../../utils/style/Atoms'
 import { SurveyContext } from '../../utils/context'
-import { useFetch } from '../../utils/hooks'
+import { useFetch, useTheme } from '../../utils/hooks'
 
 const SurveyContainer = styled.div`
     display: flex;
@@ -65,14 +65,23 @@ function Survey() {
     const nextQuestionNumber = questionNumberInt + 1
     //const [surveyData, setSurveyData] = useState({})
     //const [isDataLoading, setDataLoading] = useState(false)
-    const { saveAnswers, answers } = useContext(SurveyContext)
     //const [error, setError] = useState(false)
+
+    const { theme } = useTheme()
+
+    const { saveAnswers, answers } = useContext(SurveyContext)
 
     function saveReply(answer) {
         saveAnswers({ [questionNumber]: answer })
     }
 
     const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
+
+    // Ici le "?" permet de s'assurer que data existe bien.
+    // Vous pouvez en apprendre davantage sur cette notation ici :
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+    // const surveyData = data?.surveyData
     const { surveyData } = data
 
     // useEffect(() => {
